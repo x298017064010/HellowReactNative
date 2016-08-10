@@ -4,22 +4,18 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-
 import {Actions} from 'react-native-router-flux'
 
-export default class Home extends Component {
+export default class Home3 extends Component {
 
     // 构造
-    constructor(props) {
+      constructor(props) {
         super(props);
-        console.log(this.props.states);
+          console.log(this.props.states);
 
-        // 初始状态
+          // 初始状态
         this.state = {};
-    }
-
-
-
+      }
     render() {
         return (
             <View style={styles.container}>
@@ -36,16 +32,16 @@ export default class Home extends Component {
     _onPress = () => {
         const {states, actions} = this.props;
         // console.log(actions);
-        this.props.actions.loadTodos();
+        this.props.actions.appendTodo();
         console.log(states.HomeReducer);
         // this.props.actions.home3();
 
     }
     _onPress2 = () => {
-        const {home} = this.props;
+        const {states, actions} = this.props;
         // console.log(actions);
         // console.log(states.HomeReducer);
-        Actions.tab1_2();
+        Actions.pop();
     }
 }
 
@@ -54,7 +50,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'yellow',
     },
     welcome: {
         fontSize: 20,
@@ -68,4 +64,4 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state) => ({
     states: state
 });
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Home3);
